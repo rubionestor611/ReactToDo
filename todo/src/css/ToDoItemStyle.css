@@ -1,0 +1,14 @@
+.ToDoItem{
+  border: 2px solid blue;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.ToDoItem p{
+  flex-basis: 20%;
+}
+.ToDoItem input{
+  padding-right: 3rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
