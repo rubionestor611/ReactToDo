@@ -1,0 +1,17 @@
+.header{
+  background-color: lightblue;
+}
+.headercontainer{
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.header1{
+  border: 0.5px solid black;
+  background-color: aquamarine;
+}
+.headerparagraph{
+  border: 0.5px solid black;
+  background-color: lightcoral;
+}

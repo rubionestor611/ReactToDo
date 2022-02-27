@@ -3,9 +3,14 @@
   justify-content: center;
   display: flex;
   flex-direction: row;
+  opacity: 100%;
 }
 .ToDoItem p{
   flex-basis: 20%;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  margin-bottom: auto;
+  padding-bottom: 0.8rem;
 }
 .ToDoItem input{
   padding-right: 3rem;

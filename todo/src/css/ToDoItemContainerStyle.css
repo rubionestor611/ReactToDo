@@ -1,0 +1,6 @@
+.ToDoItemContainer{
+  background-image: url('../logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: lighten;
+}
