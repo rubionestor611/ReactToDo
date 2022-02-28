@@ -2,12 +2,13 @@ import React from 'react';
 import ToDoItemStyle from '../css/ToDoItemStyle.css'
 
 export default function ToDoItem(props){
+  console.log(props);
   return (
-    <div class = "ToDoItem">
+    <div className = "ToDoItem">
       <input type = "checkbox" />
-      <p><b>{props.itemTitle}</b></p>
-      <p style = {{display: (props.notes && props.notes.length > 0) ? "" : "none"}}><i>{props.notes}</i></p>
-      <p>Due: {props.dueDate}</p>
+      <p><b>{props.item.itemTitle}</b></p>
+      <p style = {{display: (props.item.notes && props.item.notes.length > 0) ? "" : "none"}}><i>{props.item.notes}</i></p>
+      <p>Due: {props.item.dueDate}</p>
     </div>
   );
 }

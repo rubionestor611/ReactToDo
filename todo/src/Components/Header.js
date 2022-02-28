@@ -3,11 +3,11 @@ import Headerstyles from '../css/Headerstyles.css';
 
 export default function Header(){
   return (
-    <div class = "header">
-      <container class = "headercontainer">
-        <h1 class = "header1">Nestor's React To-Do List App!</h1>
-        <p class = "headerparagraph">Even though it might be pretty basic...let's see if I can spice it up</p>
-      </container>
+    <div className = "header">
+      <div className = "headercontainer">
+        <h1 className = "header1">Nestor's React To-Do List App!</h1>
+        <p className = "headerparagraph">Even though it might be pretty basic...let's see if I can spice it up</p>
+      </div>
     </div>
   );
 }
