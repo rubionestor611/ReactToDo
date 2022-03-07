@@ -16,11 +16,15 @@ import React from 'react';
 
 // class version
 class App extends React.Component{
-  myMethod(){
-    console.log('method call');
+  myMethod(value){
+    console.log(value);
+  }
+  constructor(){
+    super();
+    this.state = {title : "Nestor's React Project"};
   }
   render() {
-    this.myMethod();
+    this.myMethod(this.state.title);
     return (
       <div className="App">
         <Header />

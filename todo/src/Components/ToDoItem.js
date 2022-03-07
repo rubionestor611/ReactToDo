@@ -14,13 +14,27 @@ import ToDoItemStyle from '../css/ToDoItemStyle.css'
 //  );
 //}
 class ToDoItem extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      title: "",
+      notes: "",
+      dueDate: ""
+    };
+  }
+  setState(){
+    this.state.title = this.props.item.itemTitle;
+    this.state.notes = this.props.item.notes;
+    this.state.dueDate = this.props.item.dueDate;
+  }
   render(){
+    this.setState()
     return (
       <div className = "ToDoItem">
         <input type = "checkbox"/>
-        <p><b>{this.props.item.itemTitle}</b></p>
-        <p style = {{display: (this.props.item.notes && this.props.item.notes.length > 0) ? "" : "none"}}><i>{this.props.item.notes}</i></p>
-        <p>Due: {this.props.item.dueDate}</p>
+        <p><b>{this.state.title}</b></p>
+        <p style = {{display: (this.state.notes && this.state.notes.length > 0) ? "" : "none"}}><i>{this.state.notes}</i></p>
+        <p>Due: {this.state.dueDate}</p>
       </div>
     );
   }
