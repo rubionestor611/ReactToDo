@@ -7,7 +7,7 @@ class Header extends React.Component {
     this.state={};
   }
   render(){
-    return (
+    return this.props.isLoading ? (<h1>Loading Header...</h1>) : (
       <div className = "header" onClick={()=>console.log("Nestor's React App Header")}>
         <div className = "headercontainer">
           <h1 className = "header1">Nestor's React To-Do List App!</h1>

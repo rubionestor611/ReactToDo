@@ -20,18 +20,47 @@ function myMethod(value){
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {title : "Nestor's React Project"};
-    //this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      isLoading: true
+    }
   }
-  
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({
+        isLoading: false
+      })
+    }, 15)
+  }
   render() {
     return (
       <div className="App">
-        <Header />
-        <ToDoItemContainer />
+        <Header isLoading={this.state.isLoading}/>
+        <ToDoItemContainer isLoading={this.state.isLoading}/>
       </div>
     );
   }
+  // initial call once component is "mounted"
+  // might use to make api calls
+  //componentDidMount(){
+  //}
+  // decision on whether to change or not
+  // determine whether to consider updating or not
+  //shouldComponentUpdate(nextProps, nextstate){
+      // true if plans to update
+      // false if not
+  //}
+  // will the component disappear?
+  //componentWillUnmount(){
+    // remove event listeners
+    // teardown or cleanup component before it disappears
+  //}
+  // when component needs to set state based on props; rare case
+  //static getDerivedStateFromProps(props,state){
+  //}
+  // create back up of current way things are
+  //getSnapshotBeforeUpdate(){
+  //}
+
 }
 
 

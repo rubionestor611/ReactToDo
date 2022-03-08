@@ -13,7 +13,6 @@ class ToDoItemContainer extends React.Component {
   }
 
   handleChange(id){
-    console.log('now modding state of ', id);
     this.setState(prevState => {
       const updatedTodos = prevState.todos.map(toDo => {
         if(toDo.itemTitle === id){
@@ -24,10 +23,15 @@ class ToDoItemContainer extends React.Component {
       return {
         todos: updatedTodos
       };
-    })
+    });
   }
   render() {
-    let toDoItems = this.state.todos.map(item => <ToDoItem key = {item.itemTitle} item = {item} handleChange={this.handleChange}/>)
+    if(this.props.isLoading) return (<h1>Loading ToDoItemContainer...</h1>);
+
+    let toDoItems = this.state.todos.map(item =>
+      <ToDoItem key = {item.itemTitle} item = {item}
+       handleChange={this.handleChange}
+      />)
     return (
       <div className = "ToDoItemContainer">
         {toDoItems}
