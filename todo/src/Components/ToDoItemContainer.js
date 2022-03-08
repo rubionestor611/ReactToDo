@@ -7,10 +7,27 @@ class ToDoItemContainer extends React.Component {
   constructor(){
     super();
     this.state = {
+      todos: toDoList
     }
+    this.handleChange=this.handleChange.bind(this);
+  }
+
+  handleChange(id){
+    console.log('now modding state of ', id);
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(toDo => {
+        if(toDo.itemTitle === id){
+          toDo.completed = !toDo.completed;
+        }
+        return toDo;
+      });
+      return {
+        todos: updatedTodos
+      };
+    })
   }
   render() {
-    let toDoItems = toDoList.map(item => <ToDoItem key = {item.itemTitle} item = {item}/>);
+    let toDoItems = this.state.todos.map(item => <ToDoItem key = {item.itemTitle} item = {item} handleChange={this.handleChange}/>)
     return (
       <div className = "ToDoItemContainer">
         {toDoItems}

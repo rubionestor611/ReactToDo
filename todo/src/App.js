@@ -13,18 +13,18 @@ import React from 'react';
 //    </div>
 //  );
 //}
-
+function myMethod(value){
+  console.log(value);
+}
 // class version
 class App extends React.Component{
-  myMethod(value){
-    console.log(value);
-  }
   constructor(){
     super();
     this.state = {title : "Nestor's React Project"};
+    //this.handleChange = this.handleChange.bind(this);
   }
+  
   render() {
-    this.myMethod(this.state.title);
     return (
       <div className="App">
         <Header />
