@@ -4,10 +4,13 @@ import ToDoItemContainer from './ToDoItemContainer';
 
 export default function ToDoItem(props) {
   return (
-    <div className = "ToDoItem" >
+    <div className = {props.item.completed ? "completedItem" : "ToDoItem"} >
         <input type = "checkbox"
-          checked={props.item.checked}
-          onChange={()=>props.handleChange(props.item.itemTitle)}
+          checked={props.item.completed}
+          onChange={()=>{
+              props.handleChange(props.item.itemTitle, props.item.completed);
+            }
+          }
         />
         <p><b>{props.item.itemTitle}</b></p>
         <p style = {{display: (props.item.notes && props.item.notes.length > 0) ? "" : "none"}}><i>{props.item.notes}</i></p>

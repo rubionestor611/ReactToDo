@@ -1,19 +1,25 @@
-.ToDoItem{
+.ToDoItem, .completedItem{
   border: 2px solid blue;
   justify-content: center;
   display: flex;
   flex-direction: row;
   opacity: 100%;
 }
-.ToDoItem p{
+.ToDoItem p, .completedItem p{
   flex-basis: 20%;
   margin-top: auto;
   padding-top: 0.8rem;
   margin-bottom: auto;
   padding-bottom: 0.8rem;
 }
-.ToDoItem input{
+.ToDoItem input, .completedItem input{
   padding-right: 3rem;
   margin-top: auto;
   margin-bottom: auto;
+}
+.completedItem{
+  text-decoration: line-through;
+  color: gray;
+  text-decoration-style: solid;
+  text-decoration-color: black;
 }

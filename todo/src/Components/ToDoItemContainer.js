@@ -12,11 +12,11 @@ class ToDoItemContainer extends React.Component {
     this.handleChange=this.handleChange.bind(this);
   }
 
-  handleChange(id){
-    this.setState(prevState => {
+  handleChange(id, state){
+    this.setState((prevState) => {
       const updatedTodos = prevState.todos.map(toDo => {
         if(toDo.itemTitle === id){
-          toDo.completed = !toDo.completed;
+          toDo.completed = !state;
         }
         return toDo;
       });
@@ -27,7 +27,7 @@ class ToDoItemContainer extends React.Component {
   }
   render() {
     if(this.props.isLoading) return (<h1>Loading ToDoItemContainer...</h1>);
-
+    
     let toDoItems = this.state.todos.map(item =>
       <ToDoItem key = {item.itemTitle} item = {item}
        handleChange={this.handleChange}
