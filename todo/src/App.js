@@ -4,6 +4,7 @@ import ToDoItem from './Components/ToDoItem';
 import Header from './Components/Header';
 import ToDoItemContainer from './Components/ToDoItemContainer';
 import React from 'react';
+import Form from './Components/Form'
 
 //function App() {
 //  return (
@@ -21,21 +22,38 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      isLoading: true
+      isLoading: true,
+      object: {}
     }
   }
+  // usually used for api calls or loading
   componentDidMount(){
     setTimeout(()=>{
       this.setState({
         isLoading: false
       })
-    }, 15)
+    }, 1500);
+    //this.setState({loading: true});
+    // look for ways to circumvent this
+    /*fetch("https://swapi.co/api/people/1")
+      .then(response=>response.json())
+      .then(data=>{
+        console.log(data);
+        this.setState({
+          loading: false,
+          object:{data}
+        });
+      });*/
+    /*this.setState({
+      loading: false
+    });*/
   }
   render() {
     return (
       <div className="App">
         <Header isLoading={this.state.isLoading}/>
         <ToDoItemContainer isLoading={this.state.isLoading}/>
+        <Form />
       </div>
     );
   }
