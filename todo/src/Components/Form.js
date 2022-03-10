@@ -9,13 +9,30 @@ class Form extends React.Component {
       lastName: "",
       isFriendly: true,
       gender: "",
-      favColor: "blue"
+      favColor: "--please choose a color--",
+      dietaryRestrictions: {
+        isVegan: false,
+        isPescatarian: false,
+        isLactoseIntolerant: false,
+        isAllergictoPeanuts: false
+      }
     };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event){
     const {name, value,type, checked} = event.target
-    if(type === "checkbox"){
+    if(this.state.dietaryRestrictions.hasOwnProperty(name)){
+      this.setState(prevState=>{
+        return {
+          dietaryRestrictions:{
+            ...prevState.dietaryRestrictions,
+            [name]: checked
+          }
+        }
+      })
+      //name === "isVegan" || name === "isPescatarian" || name=== "isLactoseIntolerant"||
+      //name === "isAllergictoPeanuts"
+    }else if(type === "checkbox"){
       this.setState({[name]: checked})
     }else{
       this.setState({ [name]: value });
@@ -85,6 +102,7 @@ class Form extends React.Component {
         value={this.state.favColor}
         onChange={this.handleChange}
         name="favColor">
+          <option value="--please choose a color--">--please choose a color--</option>
           <option value ="blue">blue</option>
           <option value ="green">green</option>
           <option value ="black">black</option>
@@ -92,6 +110,39 @@ class Form extends React.Component {
           <option value ="red">red</option>
         </select>
         <p>You chose {this.state.favColor}</p>
+        <hr/>
+        <label>
+          <input
+            type="checkbox"
+            name="isVegan"
+            onChange={this.handleChange}
+            checked={this.state.dietaryRestrictions.isVegan}
+            /> Vegan?
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="isPescatarian"
+            onChange={this.handleChange}
+            checked={this.state.dietaryRestrictions.isPescatarian}
+            /> Pescatarian?
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="isLactoseIntolerant"
+            onChange={this.handleChange}
+            checked={this.state.dietaryRestrictions.isLactoseIntolerant}
+            /> Lactose-Intolerant?
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="isAllergictoPeanuts"
+            onChange={this.handleChange}
+            checked={this.state.dietaryRestrictions.isAllergictoPeanuts}
+            /> Allergic to Peanuts?
+        </label>
         <button>Submit</button>
       </form>
     )
