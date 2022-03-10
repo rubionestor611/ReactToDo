@@ -1,20 +1,20 @@
 const toDoList = [
   {
-    itemTitle: "Learn React",
-    notes: "Take your time",
-    dueDate: "02/25/2022",
+    itemTitle: "Learned React",
+    notes: "Took your time",
+    dueDate: "03/01/2022",
+    completed: true
+  },
+  {
+    itemTitle: "Add way to update this local list of todo items",
+    notes: "Look up online how to overwrite this file",
+    dueDate: "No real date",
     completed: false
   },
   {
-    itemTitle: "Big Discrete HW4",
-    notes: "Wait for lecture examples",
-    dueDate: "03/14/2022",
-    completed: false
-  },
-  {
-    itemTitle: "Physics modules out on 3/16",
-    notes: "It sucks...",
-    dueDate: "03/16/2022",
+    itemTitle: "Add live input to this app",
+    notes: "Consider form code with buttons and fields and even dates",
+    dueDate: "No due date",
     completed: false
   }
 ];

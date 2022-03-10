@@ -53,7 +53,6 @@ class App extends React.Component{
       <div className="App">
         <Header isLoading={this.state.isLoading}/>
         <ToDoItemContainer isLoading={this.state.isLoading}/>
-        <Form />
       </div>
     );
   }
