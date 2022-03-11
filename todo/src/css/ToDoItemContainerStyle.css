@@ -4,3 +4,14 @@
   background-position: center;
   background-blend-mode: lighten;
 }
+.ToDoItemForm{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.ToDoItemForm *{
+  text-align: center;
+}
+.ToDoItemForm input{
+  margin: 2px auto 2px auto;
+}

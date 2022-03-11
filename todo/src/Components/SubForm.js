@@ -29,8 +29,6 @@ class SubForm extends React.Component{
           }
         }
       })
-      //name === "isVegan" || name === "isPescatarian" || name=== "isLactoseIntolerant"||
-      //name === "isAllergictoPeanuts"
     }else if(type === "checkbox"){
       this.setState({[name]: checked})
     }else{

@@ -19,8 +19,6 @@ export default function SubFormComponent(props){
         <hr />
         <h1>{props.data.firstName} {props.data.lastName}</h1>
         <hr />
-        <textarea value ={"default textarea text"} onChange={props.handleChange}/>
-        <hr />
         <label>
           <input
             type="checkbox"

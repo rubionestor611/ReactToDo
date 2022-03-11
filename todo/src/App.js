@@ -32,7 +32,7 @@ class App extends React.Component{
       this.setState({
         isLoading: false
       })
-    }, 1500);
+    }, 150);
     //this.setState({loading: true});
     // look for ways to circumvent this
     /*fetch("https://swapi.co/api/people/1")

@@ -7,9 +7,7 @@ export default function ToDoItem(props) {
     <div className = {props.item.completed ? "completedItem" : "ToDoItem"} >
         <input type = "checkbox"
           checked={props.item.completed}
-          onChange={()=>{
-              props.handleChange(props.item.itemTitle, props.item.completed);
-            }
+          onChange={()=>{props.handleChange(props.item.itemTitle, props.item.completed);}
           }
         />
         <p><b>{props.item.itemTitle}</b></p>
