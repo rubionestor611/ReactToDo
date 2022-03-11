@@ -9,6 +9,7 @@ class ToDoItemForm extends React.Component{
       dueDateField:""
     }
     this.handleChange = this.handleChange.bind(this);
+    this.prepareSubmission = this.prepareSubmission.bind(this);
   }
 
   handleChange(event){
@@ -17,12 +18,21 @@ class ToDoItemForm extends React.Component{
     this.setState({
       [name]: value
     });
-
+  }
+  prepareSubmission(target){
+    let obj = {
+      itemTitle: this.state.titleField,
+      notes: this.state.notesField,
+      dueDate: this.state.dueDateField,
+      completed: false
+    }
+    this.props.handleSubmit(target,obj);
+    this.state.dueDateField = this.state.notesField = this.state.titleField = "";
   }
   render(){
     return(
       <form 
-        /*onSubmit={this.props.handleSubmit}*/
+        onSubmit={this.prepareSubmission}
         className="ToDoItemForm"
       >
         <div>
@@ -46,6 +56,7 @@ class ToDoItemForm extends React.Component{
         />
         </div>
         <input type="submit" value="Add Item" />
+        <button onClick={this.props.clearCompleted}>Clear Completed</button>
       </form>
     )
   }

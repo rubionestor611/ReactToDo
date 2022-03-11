@@ -5,14 +5,37 @@ import toDoList from '../ToDoItemsData/ToDoList';
 import ToDoItemForm from './ToDoItemForm';
 
 class ToDoItemContainer extends React.Component {
+  state = {
+    todos: []
+  }
   constructor(){
     super();
-    this.state = {
-      todos: toDoList
-    }
+    
     this.handleChange=this.handleChange.bind(this);
-    this.writetoFile=this.writetoFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getLocalState = this.getLocalState.bind(this);
+    this.savetoLocalState=this.savetoLocalState.bind(this);
+    this.addItem=this.addItem.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
+  }
+
+  savetoLocalState(){
+    localStorage.setItem('state', JSON.stringify(this.state.todos))
+    //console.log(localStorage.getItem('state'));
+  }
+
+  getLocalState(){
+    let data = localStorage.getItem('state');
+    this.setState({todos: JSON.parse(data)})
+  }
+
+  clearCompleted(){
+    this.setState(prevState=>{
+      let newlist = prevState.todos.filter(item=>!item.completed);
+      return{
+        todos: newlist
+      }
+    })
   }
 
   handleChange(id, state){
@@ -28,38 +51,36 @@ class ToDoItemContainer extends React.Component {
       };
     });
   }
-  writetoFile(){
-    let newlist = "const ToDoList = [\n";
-    this.state.todos.forEach(obj => {
-      newlist += JSON.stringify(obj);
-      newlist += ",\n"
-    });
-    newlist += "];\nexport default ToDoList;"
-    console.log(newlist);
-    /*const fs = require('fs');
-    fs.writeFileSync('../ToDoItemsData/ToDoList.js', newlist, err =>{
-      if(err){
-        console.log(err);
-        return;
-      }
-    });
-    */
+  handleSubmit(data, item){
+    data.preventDefault();
+    this.addItem(item);
+    this.savetoLocalState();
+    this.getLocalState();
   }
-  handleSubmit(data){
-    this.setState(prevState =>{
-      let updatedTodos = [];
-      prevState.todos.forEach(item =>{
-        updatedTodos.push(item);
-      })
-      updatedTodos.push(data);
-      return {
-        todos: updatedTodos
+  addItem(data){
+    if(data.itemTitle.length == 0 &&
+        data.notes.length == 0 &&
+        data.dueDate.length == 0){
+      return;
+    }
+    let newtodolist = this.state.todos;
+    newtodolist.forEach(item=>{
+      if(item.itemTitle == data.itemTitle){
+        console.log('duplicate key');
+        return null;
       }
     })
+    newtodolist.push(data);
+    this.setState({
+      todos: newtodolist
+    })
+  }
+  componentDidMount(){
+    //this.getLocalState();
   }
   render() {
     if(this.props.isLoading) return (<h1>Loading ToDoItemContainer...</h1>);
-    console.log("state ",this.state)
+    console.log('while rendering', this.state)
     let toDoItems = this.state.todos.map(item =>
       <ToDoItem key = {item.itemTitle} 
         item = {item}
@@ -67,7 +88,12 @@ class ToDoItemContainer extends React.Component {
       />)
     return (
       <div>
-        <ToDoItemForm handleSubmit = {this.handleSubmit}/>
+        <ToDoItemForm
+          handleSubmit = {this.handleSubmit}
+          clearCompleted = {()=>{
+            this.clearCompleted();
+          }}
+        />
         <div className = "ToDoItemContainer">
           {toDoItems}
         </div>
