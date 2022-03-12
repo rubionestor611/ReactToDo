@@ -8,10 +8,23 @@
   display: flex;
   flex-flow: column;
   justify-content: center;
+  background-color: rgb(78, 104, 104);
 }
 .ToDoItemForm *{
   text-align: center;
 }
 .ToDoItemForm input{
   margin: 2px auto 2px auto;
+}
+.ToDoItemForm button{
+  margin: 2px auto 2px auto;
+}
+.ToDoItemForm .textfield{
+  border-radius: 0.5rem;
+}
+.ToDoItemForm .button{
+  border-radius: 0.5rem;
+}
+.ToDoItemForm .button:hover{
+  cursor: pointer
 }

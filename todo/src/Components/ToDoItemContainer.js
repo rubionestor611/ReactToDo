@@ -51,12 +51,14 @@ class ToDoItemContainer extends React.Component {
       };
     });
   }
+  
   handleSubmit(data, item){
     data.preventDefault();
     this.addItem(item);
     this.savetoLocalState();
     this.getLocalState();
   }
+
   addItem(data){
     if(data.itemTitle.length == 0 &&
         data.notes.length == 0 &&
@@ -64,23 +66,28 @@ class ToDoItemContainer extends React.Component {
       return;
     }
     let newtodolist = this.state.todos;
+    let add = true;
     newtodolist.forEach(item=>{
       if(item.itemTitle == data.itemTitle){
-        console.log('duplicate key');
-        return null;
+        add = false;
+        return;
       }
     })
-    newtodolist.push(data);
+    if(add){
+      newtodolist.push(data);
+    }
     this.setState({
       todos: newtodolist
     })
   }
+
   componentDidMount(){
-    //this.getLocalState();
+    this.getLocalState();
   }
+
   render() {
     if(this.props.isLoading) return (<h1>Loading ToDoItemContainer...</h1>);
-    console.log('while rendering', this.state)
+
     let toDoItems = this.state.todos.map(item =>
       <ToDoItem key = {item.itemTitle} 
         item = {item}

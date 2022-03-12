@@ -37,26 +37,29 @@ class ToDoItemForm extends React.Component{
       >
         <div>
         <input type="text"
+          className="textfield"
           name="titleField"
           value={this.state.titleField}
           onChange={this.handleChange}
           placeholder="Item Title"
         />
         <input type="text"
+          className="textfield"
           name="notesField"
           value={this.state.notesField}
           onChange={this.handleChange}
           placeholder="Item Notes"
         />
         <input type="text"
+          className="textfield"
           name="dueDateField"
           value={this.state.dueDateField}
           onChange={this.handleChange}
           placeholder="Item Due Date"
         />
         </div>
-        <input type="submit" value="Add Item" />
-        <button onClick={this.props.clearCompleted}>Clear Completed</button>
+        <input type="submit" value="Add Item" className="button" />
+        <button onClick={this.props.clearCompleted} className="button">Clear Completed</button>
       </form>
     )
   }

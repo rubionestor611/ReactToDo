@@ -8,7 +8,7 @@ class Header extends React.Component {
   }
   render(){
     return this.props.isLoading ? (<h1>Loading Header...</h1>) : (
-      <div className = "header" onClick={()=>console.log("Nestor's React App Header")}>
+      <div className = "header" >
         <div className = "headercontainer">
           <h1 className = "header1">Nestor's React To-Do List App!</h1>
           <p className = "headerparagraph">Even though it might be pretty basic...let's see if I can spice it up</p>

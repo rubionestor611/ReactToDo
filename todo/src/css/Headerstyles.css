@@ -1,17 +1,21 @@
 .header{
-  background-color: lightblue;
+  background: linear-gradient(to right, 
+  lightblue 20%, pink 50%, rgb(204, 36, 255) 100%);
+  cursor:crosshair;
 }
 .headercontainer{
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
   justify-content: center;
+  text-decoration: underline;
 }
 .header1{
   border: 0.5px solid black;
-  background-color: aquamarine;
+  background-color: rgb(123, 216, 185);
 }
 .headerparagraph{
-  border: 0.5px solid black;
-  background-color: lightcoral;
+  border: 1px solid gold;
+  background-color: black;
+  color: gold;
 }
