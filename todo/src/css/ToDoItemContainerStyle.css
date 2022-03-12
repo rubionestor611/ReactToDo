@@ -1,14 +1,11 @@
 .ToDoItemContainer{
-  background-image: url('../logo.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-blend-mode: lighten;
 }
 .ToDoItemForm{
   display: flex;
-  flex-flow: column;
+  flex-flow:column;
   justify-content: center;
-  background-color: rgb(78, 104, 104);
+  background-color: black;
+  background-image: url('../logo.svg');
 }
 .ToDoItemForm *{
   text-align: center;

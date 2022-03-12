@@ -1,7 +1,6 @@
 .header{
   background: linear-gradient(to right, 
   lightblue 20%, pink 50%, rgb(204, 36, 255) 100%);
-  cursor:crosshair;
 }
 .headercontainer{
   display: flex;

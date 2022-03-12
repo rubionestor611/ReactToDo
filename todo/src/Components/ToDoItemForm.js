@@ -6,7 +6,8 @@ class ToDoItemForm extends React.Component{
     this.state={
       titleField:"",
       notesField:"",
-      dueDateField:""
+      dueDateField:"",
+      color:""
     }
     this.handleChange = this.handleChange.bind(this);
     this.prepareSubmission = this.prepareSubmission.bind(this);
@@ -24,10 +25,12 @@ class ToDoItemForm extends React.Component{
       itemTitle: this.state.titleField,
       notes: this.state.notesField,
       dueDate: this.state.dueDateField,
-      completed: false
+      completed: false,
+      color: this.state.color
     }
     this.props.handleSubmit(target,obj);
     this.state.dueDateField = this.state.notesField = this.state.titleField = "";
+    this.state.color = "white";
   }
   render(){
     return(
@@ -57,7 +60,21 @@ class ToDoItemForm extends React.Component{
           onChange={this.handleChange}
           placeholder="Item Due Date"
         />
+        <br/>
+        <select 
+          value={this.state.color}
+          onChange={this.handleChange}
+          name="color"
+        >
+          <option value ="white">white</option>
+          <option value ="grey">grey</option>
+          <option value ="lightblue">blue</option>
+          <option value ="lightcoral">red</option>
+          <option value ="lime">lime</option>
+          <option value ="pink">pink</option>
+        </select>
         </div>
+        <br/>
         <input type="submit" value="Add Item" className="button" />
         <button onClick={this.props.clearCompleted} className="button">Clear Completed</button>
       </form>

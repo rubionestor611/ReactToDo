@@ -4,16 +4,22 @@ import ToDoItemContainer from './ToDoItemContainer';
 
 export default function ToDoItem(props) {
   return (
-    <div className = {props.item.completed ? "completedItem" : "ToDoItem"} >
+    <div style={{
+      backgroundColor: props.item.color
+    }} 
+    className = {props.item.completed ? "completedItem" : "ToDoItem"}
+    >
+      <label className='checkbox'>
         <input type = "checkbox"
           checked={props.item.completed}
           onChange={()=>{props.handleChange(props.item.itemTitle, props.item.completed);}
           }
         />
-        <p><b>{props.item.itemTitle}</b></p>
-        <p style = {{display: (props.item.notes && props.item.notes.length > 0) ? "" : "none"}}><i>{props.item.notes}</i></p>
-        <p>Due: {props.item.dueDate}</p>
-      </div>
+      </label>
+      <p><b>{props.item.itemTitle}</b></p>
+      <p style = {{display: (props.item.notes && props.item.notes.length > 0) ? "" : "none"}}><i>{props.item.notes}</i></p>
+      <p>Due: {props.item.dueDate}</p>
+    </div>
   );
 }
 

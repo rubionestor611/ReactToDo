@@ -1,5 +1,5 @@
 .ToDoItem, .completedItem{
-  border: 2px solid blue;
+  border: 2px solid black;
   justify-content: center;
   display: flex;
   flex-direction: row;
@@ -11,6 +11,8 @@
   padding-top: 0.8rem;
   margin-bottom: auto;
   padding-bottom: 0.8rem;
+  padding-left: 1,5rem;
+  padding-right: 1.5rem;
 }
 .ToDoItem input, .completedItem input{
   padding-right: 3rem;
@@ -22,4 +24,10 @@
   color: gray;
   text-decoration-style: solid;
   text-decoration-color: black;
+}
+.checkbox{
+  padding: 2rem;
+}
+.checkbox:hover{
+  cursor:pointer;
 }
